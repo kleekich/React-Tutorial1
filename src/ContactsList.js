@@ -3,13 +3,32 @@ import {render} from 'react-dom';
 import Contact from './Contact';
 
 class ContactsList extends React.Component {
+	
+	constructor() {
+		super();
+
+		this.state = {
+			search: 'Level up'
+		};
+
+		
+	}
+	updateSearch(event) {
+			this.setState({search: event.target.value})
+	}
+
 	render() {
 		return (
-				<ul>
-					{this.props.contacts.map((cont) => {
-						return <Contact contact={cont} key={cont.id} />
-					})}
-				</ul>
+				<div>
+					<ul>
+						{this.props.contacts.map((cont) => {
+							return <Contact contact={cont} key={cont.id} />
+						})}
+					</ul>
+					<input type="text" 
+					value = {this.state.search}
+					onChange = {this.updateSearch.bind(this)} />
+				</div>
 			)
 	}
 }
