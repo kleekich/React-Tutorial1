@@ -14,7 +14,7 @@ class ContactsList extends React.Component {
 		
 	}
 	updateSearch(event) {
-			this.setState({search: event.target.value})
+			this.setState({search: event.target.value.substr(0,10)})
 	}
 
 	render() {
